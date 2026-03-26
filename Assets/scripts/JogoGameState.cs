@@ -5,6 +5,7 @@ public class JogoGameState: GameBaseState
     public override void enterState(GameStateManager gameState)  {
         Debug.Log("Entramos no modo jogo");
         gameState.AtivarElementosJogo(true);
+        gameState.player.GetComponent<Snake>().ResetState();
     }
     public override void updateState(GameStateManager gameState)  {
         if (Input.GetKeyDown(KeyCode.Space))  {

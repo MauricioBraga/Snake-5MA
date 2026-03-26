@@ -65,6 +65,12 @@ public void Start()        {
         transform.position = new Vector2(x, y);
     }
 
-    
+    public void ResetState()
+    {
+        direction = Vector2Int.right;
+        transform.position = Vector3.zero;
+
+        score = 0;
+    }
 
 }
