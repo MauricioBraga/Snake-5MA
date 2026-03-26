@@ -9,7 +9,7 @@ public class AberturaGameState: GameBaseState
     public override void enterState(GameStateManager gameState)  {
         Debug.Log("Entramos na tela inicial");
         telaInicialJogo = GameObject.Find("tela_nova_inicial_Snake_1280_1060_0");
-        // telaInicialJogo.GetComponent<SpriteRenderer>().enabled = true;
+        telaInicialJogo.GetComponent<SpriteRenderer>().enabled = true;
         timer = 0;
         contador = 15;
     }
