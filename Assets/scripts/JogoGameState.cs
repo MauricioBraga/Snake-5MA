@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class JogoGameState: GameBaseState  
 {
+    private GameObject gameMusic;
+
     public override void enterState(GameStateManager gameState)  {
         Debug.Log("Entramos no modo jogo");
         gameState.AtivarElementosJogo(true);
         gameState.player.GetComponent<Snake>().ResetState();
+        gameMusic = GameObject.Find("SnakeCharmer_piano_edited-Ok");
+        gameMusic.GetComponentInParent<AudioSource>().Play();      
     }
     public override void updateState(GameStateManager gameState)  {
         if (Input.GetKeyDown(KeyCode.Space))  {
@@ -15,5 +19,6 @@ public class JogoGameState: GameBaseState
     public override void leaveState(GameStateManager gameState)  {
         Debug.Log("Saindo do modo jogo");
         gameState.AtivarElementosJogo(false);
+        gameMusic.GetComponentInParent<AudioSource>().Stop();
     }
 }
