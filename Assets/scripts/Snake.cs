@@ -71,6 +71,52 @@ public void Start()        {
         transform.position = Vector3.zero;
 
         score = 0;
+
+        destroiCobra();
     }
+
+    public void destroiCobra()    {
+        // destroi apenas os objetos segmentos da cobra,
+
+        // não destrói a cabeça, por isso começa em 1.
+        for (int i = 1; i < segments.Count; i++)     {
+            // O metodo destroy recebe um GameObject, por isso
+            // usamos a variável gameObject do Transform
+            Destroy(segments[i].gameObject);
+        }
+        // objetos foram destruídos, mas a lista ainda tem variáveis que 
+        // apontam para eles (apontam para null agora?)
+        // então limpamos a lista, e depois adicionamos de volta a cabeça.
+        segments.Clear();
+        segments.Add(transform);
+    }
+
+public void Grow()     {
+        // instancia um novo segmento para adicionar a cobra
+        Transform segment = Instantiate(segmentPreFab);
+
+        // pega para o novo segmento a posição do último 
+        segment.position = segments[segments.Count - 1].position;
+
+        // adiciona o novo segmento a cobra
+        segments.Add(segment);
+
+        Debug.Log("rodou");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)   {
+
+        if (other.gameObject.CompareTag("Food"))   {
+            Grow();
+            score++;
+            Debug.Log("score: " + score);
+        }
+        else if (other.gameObject.CompareTag("Obstacle"))   {
+            destroiCobra();
+            this.gameState.switchState(this.gameState.telaCreditosState);  
+        }
+    }
+
+
 
 }

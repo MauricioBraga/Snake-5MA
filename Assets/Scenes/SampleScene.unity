@@ -798,7 +798,7 @@ MonoBehaviour:
   score: 0
   direction: {x: 1, y: 0}
   segments: []
-  segmentPreFab: {fileID: 0}
+  segmentPreFab: {fileID: 2221462073426200045, guid: 2bb50af48fb6fea449f1f53f74efb71f, type: 3}
   ativo: 0
   gameState: {fileID: 1327336093}
 --- !u!1 &1172388609

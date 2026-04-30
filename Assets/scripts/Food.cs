@@ -13,7 +13,7 @@ public class Food : MonoBehaviour    {
         int x = Mathf.RoundToInt(Random.Range(bounds.min.x, bounds.max.x));
         int y = Mathf.RoundToInt(Random.Range(bounds.min.y, bounds.max.y));
         // move a comida para a nova posição aleatória (dentro do 	// gridArea definido para o jogo)
-	transform.position = new Vector2(x, y);
+	    transform.position = new Vector2(x, y);
     }
     // chamado toda vez que o isTrigger sinaliza, ou seja, quando uma    
     // colisão ocorre de alguém com o objeto Food.
